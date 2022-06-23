@@ -34,7 +34,7 @@ class CustomDropDown extends Component {
         options.push(React.createElement("option", {value: inner, key: key}, inner))
       }
       options.push(React.createElement("option", {value: "custom", key: "custom"}, "custom"))
-      let topicDropDown = React.createElement("select", {value: this.props.value, onChange: this.props.onChangeValue}, 
+      let topicDropDown = React.createElement("select", {value: this.props.value, onChange: this.props.onChangeValue, className: "dropdown"}, 
         options
       )
       return topicDropDown

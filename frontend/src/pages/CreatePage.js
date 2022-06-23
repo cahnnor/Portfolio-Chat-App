@@ -62,11 +62,11 @@ const CreatePage = () => {
     On the submit button we need a handleSubmit function to make a POST request to the server containing name, topic, and description.
   */
   return (
-    <div>
+    <div className="create-page-container">
         <div className='dropdown-container'>Topic: <CustomDropDown value={topic} onChangeValue={(e) => {handleTopic(e.target.value)}}  activeElementType={dState} topics={topics}/></div>
-        Name: <input className="text-field" onChange={(e) => {handleChange(e.target.value) }} type='text' placeholder='room-name' value={name}/> <br/>
+        <div className='new-room-name'>Name: <input className="text-field" onChange={(e) => {handleChange(e.target.value) }} type='text' placeholder='room-name' value={name}/></div> 
         <div className='description-container'>
-          Description: <input className="description" onChange={(e) => {handleDesc(e.target.value) }} type='text' placeholder='Describe the room' value={description}/>
+        Description: <textarea className="description" onChange={(e) => {handleDesc(e.target.value) }} type='text' placeholder='Describe the room' value={description}/>
         </div>
         <input onClick={createRoom} className="submit-button" type='submit' value='Submit' />
         
