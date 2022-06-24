@@ -102,7 +102,7 @@ const RoomPage = () => {
         const j = await message.json()
       }
       window.location.reload()
-      console.log("post")
+    
     }
 
     let getRoom = async ()=> {
@@ -166,6 +166,7 @@ const RoomPage = () => {
     }
     
     let roomstring = `/room/${params.id}/update`
+    //let roomstring = '/room/26/update'
     let deletestring = `/room/${params.id}/delete`
   return (
     <div className="room-container">
@@ -184,6 +185,8 @@ const RoomPage = () => {
         <div className='room-description'>{rooms?.description}</div>
         <div>{messageList}</div>
         </div>
+
+        {user.username === rooms?.user ? console.log(roomstring) : null}
         {user.username === rooms?.user ? <Link to={roomstring} className="floating-button">Update</Link> : null}
         {user.username === rooms?.user ? <button onClick={deleteRoom} className="delete-button">Delete</button> : null}
         <input type="text" placeholder='type your message here' className="message-box" onChange={(e) => handleChangeBox(e.target.value)} value={messageBox}/>

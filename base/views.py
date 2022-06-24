@@ -135,6 +135,7 @@ def deleteRoom(request, pk):
 @permission_classes([IsAuthenticated])
 @api_view(['PUT'])
 def updateRoom(request, pk):
+    print("Update room called.")
     data = request.data
     room = Room.objects.get(id=pk)
     if data['host'] != str(room.host):
@@ -183,6 +184,9 @@ def getRoom(request, pk):
     serializer = RoomSerializer(room, many=False)
     room_data = {'user':room.host.username}
     room_data.update(serializer.data)
+    room_data['topic'] = room.topic.name
+    print(room_data['topic'])
+    
 
     message_serializer = MessageSerializer(instance=messages, many=True)
     # Convert user ID to username since serializer gets id for some reason..

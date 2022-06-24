@@ -63,7 +63,7 @@ const HomePage = () => {
       profile_data = data[2]
       if (profile_data.pfp !== null){
         setPFP(React.createElement("img", {src: `${profile_data.pfp}`, className: "user-pfp-homepage", key:"pfp"}))
-        console.log('rendered')
+        
       } 
       
     }
