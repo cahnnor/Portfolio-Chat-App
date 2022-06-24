@@ -40,7 +40,8 @@ const UserPage = () => {
             let mess = [React.createElement("p", {value: "rooms", key:"room"}, "My Rooms: ")]
             for(let i = 0; i < room_data.length; i++){
               mess.push(React.createElement("div", {className:"room-activity", key:i}, 
-              React.createElement("div", {className: "room-text", value: room_data[i].name}, `${room_data[i].name} : ${room_data[i].description}`)))  
+              React.createElement("div", {className: "room-text", value: room_data[i].name}, `${room_data[i].name}`),
+              React.createElement("div", {className: "room-desc", value: room_data[i].name}, `${room_data[i].description}`)))  
             }
            messy = React.createElement("div", {}, mess)
         }
@@ -49,7 +50,8 @@ const UserPage = () => {
             let mess2 = [React.createElement("p", {value: "messages", key:"mess"}, "Recent Messages: ")]
             for(let i = 0; i < message_data.length; i++){
               mess2.push(React.createElement("div", {className:"message-activity", key:i}, 
-              React.createElement("div", {className: "message-text", value: message_data[i].body}, `${message_data[i].body} ||| in room: "${message_data[i].room}"`)))  
+              React.createElement("div", {className: "message-text", value: message_data[i].body}, `${message_data[i].body}`),
+              React.createElement("div", {className: "message-room", value: message_data[i].body}, `${message_data[i].room}`)))  
             }   
            messy2 = React.createElement("div", {}, mess2)
         }
@@ -73,7 +75,7 @@ const UserPage = () => {
         </div>
       </div>
     <div className="profile-content">
-    User Page for {params.username}
+    <div className="profile-username">{params.username}</div>
       <div>{activity}</div>
       </div>
     </div>
