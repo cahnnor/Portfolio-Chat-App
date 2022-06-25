@@ -102,7 +102,7 @@ a:hover {
   display: grid;
   grid-template-columns: 1fr 6fr;
   grid-template-rows: 100px 1fr;
-  
+  overflow:hidden;
 }
 .homepage-header-container{
   width: 100%;
@@ -112,6 +112,7 @@ a:hover {
   z-index: 100;
   background-color: #3d3436;
   box-shadow: rgba(0,0,0,0.15);
+  overflow: hidden;
 }
 
 .header-divider{
@@ -605,7 +606,11 @@ a:hover {
   
 }
 
+/* Mobile Responsiveness */
+
 @media (max-width: 715px) {
+  
+  /* user-page */
   .user-pfp{
     width: 50%;
   }
@@ -618,6 +623,8 @@ a:hover {
   .activityDiv{
     overflow: hidden;
   }
+
+  /* room-page */
   .room-container{
     grid-template-columns: 1fr 0px;
 
@@ -634,4 +641,31 @@ a:hover {
     z-index: 10;
     background-color: #282c34;
   }
+  /* home-page */
+  .topics-container{
+    z-index: 0;
+  }
+  .roomshome{
+    z-index: 10;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    width: 100%;
+    padding: 5%;
+  }
+  .header-divider{
+    grid-template-columns: 1fr 50px 75px 100px;
+    overflow: hidden;
+  }
+  .searchbar{
+    min-width: none;
+    width: 10%;
+  }
+  .searchbar:focus{
+    z-index: 200;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    width: 75%;
+    
+  }
+
 }
