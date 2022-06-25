@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { useParams, useNavigate, Link} from "react-router-dom";
-import ParticipantButton from '../components/ParticipantButton';
+import BackButton from '../components/BackButton';
 import ProfileIcon from '../components/ProfileIcon';
 import AuthContext from '../context/AuthContext';
 
@@ -192,7 +192,7 @@ const RoomPage = () => {
         {user.username === rooms?.user ? <button onClick={deleteRoom} className="delete-button">Delete</button> : null}
         <input type="text" placeholder='type your message here' className="message-box" onChange={(e) => handleChangeBox(e.target.value)} value={messageBox}/>
         <input onClick ={() => handleMessage(messageBox)} className="submit-button" type='submit' />
-        <ParticipantButton/>
+        <BackButton/>
     </div>
     </div>
   )

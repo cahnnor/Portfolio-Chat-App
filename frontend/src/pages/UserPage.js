@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import BackButton from '../components/BackButton';
 
 const UserPage = () => {
     let params = useParams();
@@ -78,6 +79,7 @@ const UserPage = () => {
     <div className="profile-username">{params.username}</div>
       <div>{activity}</div>
       </div>
+      <BackButton/>
     </div>
   )
 }
