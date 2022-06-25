@@ -359,12 +359,19 @@ a:hover {
   height: 35px;
 }
 .back-button{
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
   width: 40px;
   height: 40px;
   z-index: 100;
   position: fixed;
   top: 40px;
   right: 40px;
+  transition: opacity 0.1s;
+}
+.back-button:hover{
+  opacity: 0.5;
 }
 
 .delete-button {

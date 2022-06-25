@@ -4,6 +4,7 @@ import {
   useNavigate
 } from "react-router-dom";
 import AuthContext from '../context/AuthContext';
+import BackButton from '../components/BackButton';
 
 
 const CreatePage = () => {  
@@ -69,7 +70,7 @@ const CreatePage = () => {
         Description: <textarea className="description" onChange={(e) => {handleDesc(e.target.value) }} type='text' placeholder='Describe the room' value={description}/>
         </div>
         <input onClick={createRoom} className="submit-button" type='submit' value='Submit' />
-        
+        <BackButton />
     </div>
   )
 }
