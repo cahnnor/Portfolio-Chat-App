@@ -3,8 +3,8 @@ import { useParams, useNavigate, Link} from "react-router-dom";
 import BackButton from '../components/BackButton';
 import ProfileIcon from '../components/ProfileIcon';
 import AuthContext from '../context/AuthContext';
-
-
+import ParticipantButton from '../components/ParticipantButton';
+import { ReactComponent as BackArrow } from '../assets/back-arrow.svg'
 
 const RoomPage = () => {
     /*let noteId = match.params.id*/
@@ -19,6 +19,7 @@ const RoomPage = () => {
     let [editOn, setEditOn] = useState(false)
     let [oldMessage, setOldMessage] = useState("")
     let [participants, setParticipants] = useState(null)
+    let [visible, setVisible] = useState(true)
 
     useEffect(()=>{
         getRoom()
@@ -166,19 +167,41 @@ const RoomPage = () => {
      nav('/');
     }
     
+    let handleVisible = async () => {
+      setVisible(!visible)
+      //console.log(visible)
+    }
+
     let roomstring = `/room/${params.id}/update`
     //let roomstring = '/room/26/update'
     let deletestring = `/room/${params.id}/delete`
+    let participant_screen_class = "";
+    let room_container_class = "";
+    let content_class = "";
+    if(visible === true){
+      room_container_class = "room-container"
+      participant_screen_class = "ParticipantsScreen"
+      content_class = "content-container-participants"
+    }
+    else{
+      room_container_class = "room-container-no-participants"
+      participant_screen_class = "no-ParticipantsScreen"
+      content_class = "content-container"
+      
+    }
   return (
-    <div className="room-container">
-      <div className="ParticipantsScreen">
+    <div className={room_container_class}>
+      
+      <div className={participant_screen_class}>
         <div className='HostBox'>
-          
           <div className='HostName'>{rooms !== null ? <ProfileIcon user={rooms.user}/> : ""}Host: {rooms?.user}</div>
           {participants}  
         </div>
       </div>
-    <div className="content-container">
+    <div className={content_class}>
+    <button onClick={handleVisible} className="participant-button">
+        <BackArrow/>
+    </button>
       <div className="rooms-header">
         <h2 className="rooms-title">  
         {rooms?.name}
@@ -186,7 +209,6 @@ const RoomPage = () => {
         <div className='room-description'>{rooms?.description}</div>
         <div>{messageList}</div>
         </div>
-
         {user.username === rooms?.user ? console.log(roomstring) : null}
         {user.username === rooms?.user ? <Link to={roomstring} className="floating-button">Update</Link> : null}
         {user.username === rooms?.user ? <button onClick={deleteRoom} className="delete-button">Delete</button> : null}
