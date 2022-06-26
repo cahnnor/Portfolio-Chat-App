@@ -631,7 +631,7 @@ a:hover {
 /* Mobile Responsiveness */
 
 @media (max-width: 715px) {
-  
+
   /* user-page */
   .user-pfp{
     width: 50%;
@@ -691,13 +691,36 @@ a:hover {
   .topics-container{
     z-index: 0;
   }
+  .home-container{
+    grid-template-columns: 1fr;
+  }
   .roomshome{
     z-index: 10;
     grid-row-start: 2;
     grid-column-start: 1;
     width: 100%;
-    padding: 5%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
   }
+  
+  .room-list-item{
+    width: 95%;
+    grid-template-columns: 4fr 1fr;
+    
+
+  }
+  .RoomName, .DateHost{
+    font-size: 12px;
+  }
+  .roomTopic{
+    font-size: 8px;
+  }
+  .rooms-header{
+    margin-left: 3%;
+    margin-right: 8%;
+  }
+
   .header-divider{
     grid-template-columns: 1fr 50px 75px 100px;
     overflow: hidden;
