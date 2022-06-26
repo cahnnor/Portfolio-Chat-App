@@ -27,14 +27,21 @@ const RoomPage = () => {
     }, [params.id])
 
     let spreadMessages = (m)=>{
+      // {user.username === rooms?.user ? <Link to={roomstring} className="floating-button">Update</Link> : null}
       if(m !== null){
         let mess = [React.createElement("p", {value: "Messages", key:"mess"}, "Messages: ")]
+        
+        let del = null;
+        
         for(let i = 0; i < m.length; i++){
+          let edit = user.username === m[i].user ? React.createElement("button", {className: "messageDel", onClick: () => handleEdit(m[i].body) }, "edit") : null
+          let del = user.username === m[i].user ? React.createElement("button", {className: "messageDel", onClick: () => deleteMessage(m[i].body) }, "delete") : null
+          
           mess.push(React.createElement("div", {className:"messageDiv", key:i},
           <ProfileIcon user={m[i].user} />,
           React.createElement("div", {className: "messageText", value: m[i].body}, `${m[i].user} : ${m[i].body}`),
-          React.createElement("button", {className: "messageDel", onClick: () => handleEdit(m[i].body) }, "edit"),
-          React.createElement("button", {className: "messageDel", onClick: () => deleteMessage(m[i].body) }, "delete")
+          edit,
+          del
           ))  
         }
        
@@ -180,6 +187,7 @@ const RoomPage = () => {
     let room_container_class = "";
     let content_class = "";
     let submit_class = "";
+    let description_class = "";
 
     if(visible === true){
       room_container_class = "room-container"
@@ -187,6 +195,7 @@ const RoomPage = () => {
       content_class = "content-container-participants"
       submit_class = "submit-button-participants"
       message_class = "message-holder-participants"
+      description_class = "room-description-participants"
     }
     else{
       room_container_class = "room-container-no-participants"
@@ -194,6 +203,7 @@ const RoomPage = () => {
       content_class = "content-container"
       submit_class = "submit-button"
       message_class = "message-holder"
+      description_class = "room-description"
     }
   return (
     <div className={room_container_class}>
@@ -212,7 +222,7 @@ const RoomPage = () => {
         <h2 className="rooms-title">  
         {rooms?.name}
         </h2>
-        <div className='room-description'>{rooms?.description}</div>
+        <div className={description_class}>{rooms?.description}</div>
         <div className={message_class}>{messageList}</div>
         </div>
         {user.username === rooms?.user ? console.log(roomstring) : null}
