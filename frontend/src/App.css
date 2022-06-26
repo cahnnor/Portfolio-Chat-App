@@ -185,7 +185,7 @@ a:hover {
   box-shadow: 2px 2px rgba(0,0,0,0.15);
   color: rgba(165, 56, 56, 0.5);
 }
-.topics-container{
+.topics-container, .topics-container-hidden{
   background-color: rgb(61, 51, 55);
   padding: 5px;
   min-width: 200px;
@@ -611,6 +611,10 @@ a:hover {
   text-align: left;
 }
 
+.topic-hide{
+  visibility: hidden;
+}
+
 @media (max-width: 1026px) {
   .profile-page{
     grid-template-rows: 20% 70%;
@@ -699,6 +703,9 @@ a:hover {
 
   /* home-page */
   .topics-container{
+    z-index: 12;
+  }
+  .topics-container-hidden{
     z-index: 0;
   }
   .home-container{
@@ -725,6 +732,20 @@ a:hover {
   }
   .roomTopic{
     font-size: 8px;
+  }
+  .topic-hide{
+    visibility:visible;
+    grid-row: 3;
+    grid-column: 1;
+    margin-top: 5%;
+    width: 30%;
+    align-self: center;
+    margin-left: 35%;
+    background-color: transparent;
+    border: 2px solid rgba(119, 119, 212, 0.5);
+    border-radius: 20px;
+    padding: 5px; 
+    color: white;
   }
   .rooms-header{
     margin-left: 3%;

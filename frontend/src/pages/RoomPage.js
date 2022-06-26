@@ -19,7 +19,7 @@ const RoomPage = () => {
     let [editOn, setEditOn] = useState(false)
     let [oldMessage, setOldMessage] = useState("")
     let [participants, setParticipants] = useState(null)
-    let [visible, setVisible] = useState(true)
+    let [visible, setVisible] = useState(false)
     let message_class = "message-holder"
 
     useEffect(()=>{

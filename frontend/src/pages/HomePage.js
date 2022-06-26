@@ -21,7 +21,9 @@ const HomePage = () => {
     
     let profile_data = null
     let [pfp, setPFP] = useState(null)
-    
+    let [visible, setVisible] = useState(false)
+    let button_class = "topic-hide"
+    let topic_class = "topics-container-hidden"
 
 
     useEffect(()=> {
@@ -105,10 +107,21 @@ const HomePage = () => {
       return ""
     }
 
+    let makeInvisible = async () => {
+      setVisible(!visible)
+     
+    }
+
+    if(visible === true){
+      topic_class = "topics-container"
+    }
+     else{
+      topic_class = "topics-container-hidden"
+     }
+
     return (
         <div className="home-container">
-        <div className='topics-container'>
-        
+        <div className={topic_class}>
         {makeSideBar(topics)}
         </div>
         <div className="homepage-header-container">
@@ -139,29 +152,11 @@ const HomePage = () => {
             </div>
         
         </div>
+        
+        <button className={button_class} onClick={() => makeInvisible()} >View Topics</button>
         <AddButton />
         </div>
   )
 }
 
 export default HomePage
-
-/*
-    function getCookie(name) {
-      let cookieValue = null;
-      if (document.cookie && document.cookie !== '') {
-          const cookies = document.cookie.split(';');
-          for (let i = 0; i < cookies.length; i++) {
-              const cookie = cookies[i].trim();
-              // Does this cookie string begin with the name we want?
-              if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                  break;
-              }
-          }
-      }
-      return cookieValue;
-  }
-
-    const csrftoken = getCookie('csrftoken');
-    */
