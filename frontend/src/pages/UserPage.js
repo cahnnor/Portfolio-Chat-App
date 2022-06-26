@@ -10,6 +10,7 @@ const UserPage = () => {
     let [pfp, setPFP] = useState(null)
     let [banner, setBanner] = useState(null)
     let [activity, setActivity] = useState(null)
+    let [bio, setBio] = useState(null)
     let [header, setHeader] = useState(null)
     let messy = null
     let messy2 = null
@@ -17,11 +18,10 @@ const UserPage = () => {
     let getUserData = async () => {
         let response = await fetch(`/user/${params.username}`)
         let data = await response.json()
-        console.log("get data")
         message_data = data[0]
         room_data = data[1]
         profile_data = data[2]
-        console.log(pfp)
+        setBio(profile_data.bio)
         
         spreadActivity()
         render_images()
@@ -31,7 +31,7 @@ const UserPage = () => {
       if (profile_data.pfp !== null){
         setPFP(React.createElement("img", {src: `${profile_data.pfp}`, className: "user-pfp", key:"pfp"}))
         setBanner(React.createElement("img", {src: `${profile_data.banner}`, className:"user-banner", key:"banner"}))
-        console.log('rendered')
+
       } 
       
     }
@@ -76,7 +76,7 @@ const UserPage = () => {
         </div>
       </div>
     <div className="profile-content">
-    <div className="profile-username">{params.username}</div>
+    <div className="profile-username">{params.username} - {bio}</div>
       <div>{activity}</div>
       </div>
       <BackButton/>
