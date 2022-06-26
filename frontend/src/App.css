@@ -732,8 +732,11 @@ a:hover {
   }
 
   .header-divider{
-    grid-template-columns: 1fr 50px 75px 100px;
+    grid-template-columns: 1fr 50px 0px 100px;
     overflow: hidden;
+  }
+  .userBox{
+    visibility: hidden;
   }
   .searchbar{
     min-width: none;
