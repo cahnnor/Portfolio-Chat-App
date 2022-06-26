@@ -46,6 +46,7 @@ const HomePage = () => {
       setSearchParams({q: event})
       q = event
       getRooms()
+      setVisible(!visible)
     }
 
     let getRooms = async () => {
