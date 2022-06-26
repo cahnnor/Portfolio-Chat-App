@@ -20,6 +20,7 @@ const RoomPage = () => {
     let [oldMessage, setOldMessage] = useState("")
     let [participants, setParticipants] = useState(null)
     let [visible, setVisible] = useState(true)
+    let message_class = "message-holder"
 
     useEffect(()=>{
         getRoom()
@@ -178,16 +179,21 @@ const RoomPage = () => {
     let participant_screen_class = "";
     let room_container_class = "";
     let content_class = "";
+    let submit_class = "";
+
     if(visible === true){
       room_container_class = "room-container"
       participant_screen_class = "ParticipantsScreen"
       content_class = "content-container-participants"
+      submit_class = "submit-button-participants"
+      message_class = "message-holder-participants"
     }
     else{
       room_container_class = "room-container-no-participants"
       participant_screen_class = "no-ParticipantsScreen"
       content_class = "content-container"
-      
+      submit_class = "submit-button"
+      message_class = "message-holder"
     }
   return (
     <div className={room_container_class}>
@@ -207,13 +213,13 @@ const RoomPage = () => {
         {rooms?.name}
         </h2>
         <div className='room-description'>{rooms?.description}</div>
-        <div>{messageList}</div>
+        <div className={message_class}>{messageList}</div>
         </div>
         {user.username === rooms?.user ? console.log(roomstring) : null}
         {user.username === rooms?.user ? <Link to={roomstring} className="floating-button">Update</Link> : null}
         {user.username === rooms?.user ? <button onClick={deleteRoom} className="delete-button">Delete</button> : null}
         <input type="text" placeholder='type your message here' className="message-box" onChange={(e) => handleChangeBox(e.target.value)} value={messageBox}/>
-        <input onClick ={() => handleMessage(messageBox)} className="submit-button" type='submit' />
+        <input onClick ={() => handleMessage(messageBox)} className={submit_class} type='submit' />
         <BackButton/>
     </div>
     </div>
