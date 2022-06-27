@@ -51,7 +51,7 @@ const UserPage = () => {
 
         if(message_data !== null){
             let mess2 = [React.createElement("p", {value: "messages", key:"mess"}, "Recent Messages: ")]
-            console.log(message_data)
+            
             for(let i = 0; i < message_data.length; i++){
               mess2.push(React.createElement("a", {className:"message-activity", key:i, href:`/room/${message_data[i].room_id}`}, 
               React.createElement("div", {className: "message-text", value: message_data[i].body}, `${message_data[i].body}`),
