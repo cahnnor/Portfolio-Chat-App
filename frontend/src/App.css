@@ -249,6 +249,9 @@ a:hover {
   transition: transform 0.15s, box-shadow 0.15s;
   
 }
+a{
+  color:white;
+}
 
 .messageDel{
   cursor: pointer;
@@ -256,6 +259,7 @@ a:hover {
   margin: 5px;
   min-width: 100%;
   text-align: center;
+  transition: transform 0.15s, color 0.15s;
 }
 
 .messageDel:hover{

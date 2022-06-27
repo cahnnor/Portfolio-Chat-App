@@ -234,8 +234,10 @@ def userPage(request, name):
         message_serializer = MessageSerializer(instance=messageList, many=True)
         message_data = message_serializer.data
         for m in message_data:
+            m['room_id'] = m['room']
             m['room'] = Room.objects.get(id=m['room']).name
-
+            
+        
         roomList = user.room_set.all().order_by('updated')[:5]
         room_serializer = RoomSerializer(instance=roomList, many=True)
         

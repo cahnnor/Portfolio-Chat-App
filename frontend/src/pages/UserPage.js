@@ -35,12 +35,14 @@ const UserPage = () => {
       } 
       
     }
+    // fetch a room id from room name.
+    
 
     let spreadActivity = async () =>{
         if(room_data !== null){
             let mess = [React.createElement("p", {value: "rooms", key:"room"}, "My Rooms: ")]
             for(let i = 0; i < room_data.length; i++){
-              mess.push(React.createElement("div", {className:"room-activity", key:i}, 
+              mess.push(React.createElement("a", {className:"room-activity", key:i, href:`/room/${message_data[i].room_id}`}, 
               React.createElement("div", {className: "room-text", value: room_data[i].name}, `${room_data[i].name}`),
               React.createElement("div", {className: "room-desc", value: room_data[i].name}, `${room_data[i].description}`)))  
             }
@@ -49,8 +51,9 @@ const UserPage = () => {
 
         if(message_data !== null){
             let mess2 = [React.createElement("p", {value: "messages", key:"mess"}, "Recent Messages: ")]
+            console.log(message_data)
             for(let i = 0; i < message_data.length; i++){
-              mess2.push(React.createElement("div", {className:"message-activity", key:i}, 
+              mess2.push(React.createElement("a", {className:"message-activity", key:i, href:`/room/${message_data[i].room_id}`}, 
               React.createElement("div", {className: "message-text", value: message_data[i].body}, `${message_data[i].body}`),
               React.createElement("div", {className: "message-room", value: message_data[i].body}, `${message_data[i].room}`)))  
             }   
