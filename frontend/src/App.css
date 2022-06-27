@@ -760,7 +760,12 @@ a{
     border-radius: 20px;
     padding: 5px; 
     color: white;
+    transition: transform 0.15s;
   }
+  .topic-hide:hover{
+    transform: scale(1.2);
+  }
+  
   .rooms-header{
     margin-left: 3%;
     margin-right: 8%;
