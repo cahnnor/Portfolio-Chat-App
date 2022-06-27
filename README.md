@@ -28,7 +28,6 @@ This is done most easily in two vs-code terminal tabs.
 Currently the biggest step to do is moving this project from http to ws protocols so that users can see each other's activity in real time. This sort of moves from the typical forum behaviour into the realm of social media but it's better for UX.
 
 Other than that there are some polishing issues to solve:
- - Make homepage and roompage mobile responsive
  - add links to rooms in userpage message activity and room activity.
  - add default image and banner to profile during registration
  - resolve weird crash on login
