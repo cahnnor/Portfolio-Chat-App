@@ -258,6 +258,11 @@ a:hover {
   text-align: center;
 }
 
+.messageDel:hover{
+  transform: scale(1.2);
+  color: rgba(119, 119, 212, 0.4);
+}
+
 .submit-button{
   cursor: pointer;
   min-width: 15%;

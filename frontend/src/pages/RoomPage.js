@@ -229,7 +229,7 @@ const RoomPage = () => {
         {user.username === rooms?.user ? <Link to={roomstring} className="floating-button">Update</Link> : null}
         {user.username === rooms?.user ? <button onClick={deleteRoom} className="delete-button">Delete</button> : null}
         <input type="text" placeholder='type your message here' className="message-box" onChange={(e) => handleChangeBox(e.target.value)} value={messageBox}/>
-        <input onClick ={() => handleMessage(messageBox)} className={submit_class} type='submit' />
+        <input onClick ={() => handleMessage(messageBox)} className={submit_class} type='submit' value="Submit" />
         <BackButton/>
     </div>
     </div>
