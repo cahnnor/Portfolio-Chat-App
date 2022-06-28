@@ -47,17 +47,19 @@ const Login = () => {
     }
     /*This whole time I could have just used <form></form> FOR THE WHOLE GOD DAMN THING AND AVOIDED ALL OF THESE USE-STATE BS THINGS ADSFASDCWE.*/
     return (
-    <div>
-    <h3>login/register</h3>    
+    <div className='login-container'>
+    <div>Login</div>    
     
-    <input type="checkbox" value={register} onChange={handleRegister}/>
-    <input type="text" placeholder="username" value={username} onChange={(e) => {handleUsername(e.target.value)}}/>
-    <input type="text" placeholder="password" value={password} onChange={(e) => {handlePassword(e.target.value)}}/>
+    <input className='register' type="checkbox" value={register} onChange={handleRegister}/>
+    <input className='login-username' type="text" placeholder="username" value={username} onChange={(e) => {handleUsername(e.target.value)}}/>
+    <input className='login-password' type="text" placeholder="password" value={password} onChange={(e) => {handlePassword(e.target.value)}}/>
 
-    <input type="text" placeholder="first_name" value={fname} onChange={(e) => {handleFname(e.target.value)}}/>
-    <input type="text" placeholder="last_name" value={lname} onChange={(e) => {handleLname(e.target.value)}}/>
-    <input type="button" onClick={handleLogin} value="login" />
-    
+    <input className='login-first-name' type="text" placeholder="first_name" value={fname} onChange={(e) => {handleFname(e.target.value)}}/>
+    <input className='login-last-name' type="text" placeholder="last_name" value={lname} onChange={(e) => {handleLname(e.target.value)}}/>
+    <div className="button-zone">
+    <input className='login-button'type="button" onClick={handleLogin} value="login" />
+    <input className='login-button'type="button" onClick={handleLogin} value="Register" />
+    </div>
     </div>
   )
 }

@@ -239,7 +239,6 @@ a:hover {
   font-family: 'Roboto';
   font-weight: 520;
   width: 50%;
-  
   margin: 10px;
   padding: 15px;
   color: white;
@@ -248,8 +247,10 @@ a:hover {
   background-color: transparent;
   box-shadow: 2px 2px rgba(0,0,0,0);
   transition: transform 0.15s, box-shadow 0.15s;
-  
 }
+
+
+
 a{
   color:white;
 }
@@ -625,6 +626,53 @@ a{
 
 .topic-hide{
   visibility: hidden;
+}
+
+.login-container{
+  display: grid;
+  grid-template-rows: 1fr 15px 1fr 1fr 1fr 1fr 1fr ;
+  width: 500px;
+  align-items: center;
+  overflow:hidden;
+  row-gap: 20px;
+}
+
+.login-username, .login-password, .login-first-name, .login-last-name, .login-button{
+  width: 95%;
+  align-self: center;
+  margin: 0;
+  font-family: 'Roboto';
+  font-weight: 520;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  border: solid 1px black;
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0.15);
+  box-shadow: inset 2px 2px rgba(1,1,1,0.15);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.login-button{
+  width: 100%;
+  border: 0;
+  background-color: #7289da;
+  cursor: pointer;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.15);
+  transition: filter 0.15s;
+}
+.register{
+  background-color: transparent;
+  transform: scale(1.5);
+}
+.login-button:hover{
+  filter: brightness(0.5);
+}
+.button-zone{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  margin-right: 19px;
 }
 
 @media (max-width: 1026px) {
