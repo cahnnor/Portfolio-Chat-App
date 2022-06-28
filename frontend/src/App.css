@@ -630,7 +630,7 @@ a{
 
 .login-container{
   display: grid;
-  grid-template-rows: 1fr 15px 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr ;
   width: 500px;
   align-items: center;
   overflow:hidden;

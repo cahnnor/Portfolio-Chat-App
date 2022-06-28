@@ -36,21 +36,23 @@ const Login = () => {
             setRegister(true)
         }
     }
-    /*
-    let handleBday = async (event) =>{
-        setBday(event)
-    }
-    */
+
     let handleLogin = async () =>{
-          loginUser(username, password, register, fname, lname)
+          loginUser(username, password, false, fname, lname)
           nav('/')
     }
+
+    let regUser = async () => {
+        loginUser(username, password, true, fname, lname)
+        nav('/')
+    }
     /*This whole time I could have just used <form></form> FOR THE WHOLE GOD DAMN THING AND AVOIDED ALL OF THESE USE-STATE BS THINGS ADSFASDCWE.*/
+    /* <input className='register' type="checkbox" value={register} onChange={handleRegister}/> */
     return (
     <div className='login-container'>
     <div>Login</div>    
     
-    <input className='register' type="checkbox" value={register} onChange={handleRegister}/>
+    
     <input className='login-username' type="text" placeholder="username" value={username} onChange={(e) => {handleUsername(e.target.value)}}/>
     <input className='login-password' type="text" placeholder="password" value={password} onChange={(e) => {handlePassword(e.target.value)}}/>
 
@@ -58,7 +60,7 @@ const Login = () => {
     <input className='login-last-name' type="text" placeholder="last_name" value={lname} onChange={(e) => {handleLname(e.target.value)}}/>
     <div className="button-zone">
     <input className='login-button'type="button" onClick={handleLogin} value="login" />
-    <input className='login-button'type="button" onClick={handleLogin} value="Register" />
+    <input className='login-button'type="button" onClick={regUser} value="Register" />
     </div>
     </div>
   )

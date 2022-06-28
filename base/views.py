@@ -69,6 +69,7 @@ def loginPage(request):
             try:
                 user = User.objects.create_user(first_name=data['first_name'], last_name=data['last_name'], username=data['username'], 
                 password=data['password'])
+                profile = Profile.objects.create(user=user, bio="i'm a new user!", pfp="/pfp/cat.jpg", banner="/banners/default_banner.png")
                 return Response(status=HTTP_200_OK)
 
             except Exception as e:
