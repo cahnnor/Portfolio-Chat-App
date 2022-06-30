@@ -29,6 +29,5 @@ Currently the biggest step to do is moving this project from http to ws protocol
 
 Other than that there are some polishing issues to solve:
  - add links to rooms in userpage message activity and room activity.
- - add default image and banner to profile during registration
  - resolve weird crash on login
  - and more.
