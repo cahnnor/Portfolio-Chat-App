@@ -19,6 +19,7 @@ py -m manage.py runserver
 ```
 Then in a new CLI enter the frontend folder and run:
 ```
+npm install
 npm start
 ```
 This is done most easily in two vs-code terminal tabs.
